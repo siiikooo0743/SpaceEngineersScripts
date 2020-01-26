@@ -1,0 +1,6 @@
+# Airlock
+
+Don't really know how this works anymore...
+At least saw that things need to be named acording to the code...
+
+Switched to "AutoAirlock" by "jubbajubbjubb / not-a-cylon" from Steam Workshop (needed to do some small fixes. Will publish after I asked orginial author)
