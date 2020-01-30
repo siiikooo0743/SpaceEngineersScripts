@@ -3,9 +3,8 @@ IMyConveyorSorter sorter;
 IMySoundBlock alert;
 
 // EDIT these:
-// 1 Ingot amounts to 1 000 000 here
-const int refillAmount = 30 * 1000000;
-const int alarmAmount = 20 *  1000000;
+const int refillAmount = 30;
+const int alarmAmount = 20;
 const String reactor_name = "myShip_reactor";
 const String sorter_name = "myShip_sorter";
 const String soundBlock_name = "myShip_alarm";
@@ -48,11 +47,8 @@ public void Main(string argument, UpdateType updateSource)
     // 
     // The method itself is required, but the arguments above
     // can be removed if not needed.
-    long uranium = 0;
-    foreach(IMyInventoryItem item in reactor.GetInventory(0).GetItems()) {
-        //Reactor only holds uranium, so no type checking requiered
-        uranium += item.Amount.RawValue;
-    }
+    long uranium = reactor.GetInventory().GetItemAmount(MyItemType.MakeOre("Ice")).ToIntSafe();
+    
     Echo("Uranium: " + uranium.ToString());
     if( uranium < refillAmount) {
         sorter.GetActionWithName("OnOff_On").Apply(sorter);
